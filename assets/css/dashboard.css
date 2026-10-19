@@ -1,0 +1,325 @@
+/* ==========================================================================
+   Dashboard Specific Styles & Widgets
+   ========================================================================== */
+
+/* KPI Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: var(--glass-blur);
+    transition: var(--transition);
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-highlight);
+    box-shadow: var(--shadow-md);
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary);
+    opacity: 0.8;
+}
+
+.metric-card.card-success::before { background: var(--success); }
+.metric-card.card-warning::before { background: var(--warning); }
+.metric-card.card-info::before    { background: var(--info); }
+.metric-card.card-danger::before  { background: var(--danger); }
+
+.metric-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.metric-title {
+    font-size: 0.825rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.metric-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.metric-card.card-primary .metric-icon-wrap { background: rgba(99, 102, 241, 0.12); color: var(--primary); }
+.metric-card.card-success .metric-icon-wrap { background: var(--success-bg); color: var(--success); }
+.metric-card.card-warning .metric-icon-wrap { background: var(--warning-bg); color: var(--warning); }
+.metric-card.card-info .metric-icon-wrap    { background: var(--info-bg); color: var(--info); }
+.metric-card.card-danger .metric-icon-wrap  { background: var(--danger-bg); color: var(--danger); }
+
+.metric-value {
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.metric-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.775rem;
+    color: var(--text-secondary);
+}
+
+.metric-trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-weight: 600;
+}
+
+.metric-trend.trend-up { color: var(--success); }
+.metric-trend.trend-down { color: var(--danger); }
+
+/* Charts Layout Grid */
+.charts-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.chart-container {
+    position: relative;
+    height: 310px;
+    width: 100%;
+}
+
+/* Dashboard Two Column Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Product Ranking Item */
+.ranking-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ranking-item:last-child {
+    border-bottom: none;
+}
+
+.ranking-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ranking-rank {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ranking-title {
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.ranking-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.ranking-amount {
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+/* Stock Progress Bar */
+.progress-bar-wrap {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-top: 0.35rem;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 9999px;
+    background: var(--primary);
+}
+
+/* Login Page Styling */
+.login-body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #090d16;
+    position: relative;
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+.login-glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(139, 92, 246, 0.1) 50%, transparent 70%);
+    top: 10%;
+    left: 20%;
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.login-glow-2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 70%);
+    bottom: 10%;
+    right: 20%;
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    padding: 2.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.login-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.login-brand .brand-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.75rem;
+    margin-bottom: 0.85rem;
+}
+
+.login-brand h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.login-brand p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.demo-account-box {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px dashed rgba(99, 102, 241, 0.3);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+.demo-info {
+    color: var(--text-secondary);
+}
+
+.demo-info strong {
+    color: var(--primary);
+}
+
+/* Order View Invoice Header */
+.invoice-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.invoice-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.meta-group label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.meta-group span {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
